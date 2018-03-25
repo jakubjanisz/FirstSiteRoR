@@ -1,0 +1,2429 @@
+  [1m[36m (126.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.3ms)[0m  select sqlite_version(*)
+  [1m[36m (120.5ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreatePosts (20180113235850)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "published" boolean, "author" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180113235850"]]
+  [1m[35m (130.7ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-14 01:02:50 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/railties-4.2.8/lib/rails/templates/rails/welcome/index.html.erb (1.7ms)
+Completed 200 OK in 83ms (Views: 57.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/index" for 127.0.0.1 at 2018-01-14 01:03:05 +0100
+Processing by PostsController#index as HTML
+  Rendered posts/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 2423ms (Views: 2422.6ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "posts" ("body", "title", "published", "author", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["body", "Hello Ruby"], ["title", "Hey!"], ["published", "t"], ["author", "Jacek"], ["created_at", "2018-01-14 00:05:14.033325"], ["updated_at", "2018-01-14 00:05:14.033325"]]
+  [1m[36m (99.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "posts" ("title", "body", "published", "author", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Hello Rails"], ["body", "Rails jest super!"], ["published", "f"], ["author", "David"], ["created_at", "2018-01-14 00:06:25.215926"], ["updated_at", "2018-01-14 00:06:25.215926"]]
+  [1m[35m (93.8ms)[0m  commit transaction
+
+
+Started GET "/posts/index" for 127.0.0.1 at 2018-01-14 01:14:13 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 273ms (Views: 258.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-14 23:57:00 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/railties-4.2.8/lib/rails/templates/rails/welcome/index.html.erb (3.6ms)
+Completed 200 OK in 62ms (Views: 52.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-14 23:57:12 +0100
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.5ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 845ms (Views: 828.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-15 00:02:44 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 47ms (Views: 46.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-15 00:03:19 +0100
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 48ms (Views: 47.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2018-01-15 00:03:21 +0100
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 87ms (Views: 86.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2018-01-15 00:39:06 +0100
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 59ms (Views: 58.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2018-01-15 00:44:41 +0100
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (121.8ms)
+Completed 200 OK in 174ms (Views: 167.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2018-01-15 00:45:01 +0100
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (1.1ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+SyntaxError (/home/jakub/Pulpit/Rails/crud/app/views/posts/new.html.erb:4: syntax error, unexpected ')'
+ppend=( f.text_field :title, );@output_buffer.safe_append='
+                              ^
+/home/jakub/Pulpit/Rails/crud/app/views/posts/new.html.erb:6: syntax error, unexpected keyword_end, expecting ')'
+'.freeze; end 
+             ^
+/home/jakub/Pulpit/Rails/crud/app/views/posts/new.html.erb:8: syntax error, unexpected keyword_ensure, expecting ')'
+          ensure
+                ^
+/home/jakub/Pulpit/Rails/crud/app/views/posts/new.html.erb:10: syntax error, unexpected keyword_end, expecting ')'
+          end
+             ^):
+  app/views/posts/new.html.erb:4: syntax error, unexpected ')'
+  app/views/posts/new.html.erb:6: syntax error, unexpected keyword_end, expecting ')'
+  app/views/posts/new.html.erb:8: syntax error, unexpected keyword_ensure, expecting ')'
+  app/views/posts/new.html.erb:10: syntax error, unexpected keyword_end, expecting ')'
+
+
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.2ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (10.0ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (43.3ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (105.2ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (137.9ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2018-01-15 00:45:16 +0100
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 47ms (Views: 46.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2018-01-15 00:45:32 +0100
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 47ms (Views: 46.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-15 00:49:14 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 48ms (Views: 46.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2018-01-15 00:58:03 +0100
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (29.0ms)
+Completed 200 OK in 77ms (Views: 76.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2018-01-15 00:58:28 +0100
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 53ms (Views: 52.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2018-01-15 01:01:41 +0100
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 44ms (Views: 43.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-15 19:31:42 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 771ms (Views: 755.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2018-01-15 19:31:52 +0100
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (132.8ms)
+Completed 200 OK in 197ms (Views: 195.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2018-01-15 19:32:31 +0100
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"DPF0G5v+Dn2Tczq09PVjp8X1KU9m0XWLhNgNLLCU34IS1qpOFVJXhWx6IZOTUtFOCgayPosG39jR+6F6sb2quA==", "post"=>{"title"=>"Cześć!", "author"=>"Monika", "body"=>"Jestem Monia! ;)", "published"=>"1"}, "commit"=>"Dodaj wpis"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "posts" ("title", "author", "body", "published", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Cześć!"], ["author", "Monika"], ["body", "Jestem Monia! ;)"], ["published", "t"], ["created_at", "2018-01-15 18:32:31.229106"], ["updated_at", "2018-01-15 18:32:31.229106"]]
+  [1m[36m (157.1ms)[0m  [1mcommit transaction[0m
+Completed 500 Internal Server Error in 162ms (ActiveRecord: 157.5ms)
+
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"posts"} missing required keys: [:id]):
+  app/controllers/posts_controller.rb:9:in `create'
+
+
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.7ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.4ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (34.6ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (85.4ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.6ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (130.4ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-15 19:32:57 +0100
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.5ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 58ms (Views: 53.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2018-01-15 19:33:30 +0100
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 55ms (Views: 54.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2018-01-15 19:33:36 +0100
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 60ms (Views: 59.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2018-01-15 19:58:57 +0100
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 61ms (Views: 52.2ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2018-01-15 19:59:04 +0100
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SMANZ5hvojDfTGDLaJcdrGZMfsCHFFkWHAaJ4KEv0k9W59MyFsP7yCBFe+wPMK9Fqb/lsWrD80VJJSW2oAandQ==", "post"=>{"title"=>"Nowy tytuł", "author"=>"", "body"=>"", "published"=>"0"}, "commit"=>"Dodaj wpis"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "posts" ("title", "author", "body", "published", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Nowy tytuł"], ["author", ""], ["body", ""], ["published", "f"], ["created_at", "2018-01-15 18:59:04.324765"], ["updated_at", "2018-01-15 18:59:04.324765"]]
+  [1m[36m (189.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 196ms (ActiveRecord: 190.2ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-15 19:59:04 +0100
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.4ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 55ms (Views: 54.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2018-01-15 19:59:14 +0100
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 49ms (Views: 48.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2018-01-15 20:00:10 +0100
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 59ms (Views: 57.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-15 20:00:15 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 45ms (Views: 44.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2018-01-15 20:00:17 +0100
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 53ms (Views: 52.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2018-01-15 20:00:19 +0100
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 58ms (Views: 57.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2018-01-15 20:00:22 +0100
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 51ms (Views: 50.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2018-01-15 20:24:37 +0100
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 63ms (Views: 53.5ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2018-01-15 20:24:52 +0100
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GZkC925wkvdFdFG53IyXIawQ/XqzB4qV7pbjrfA36FgHvtyi4NzLD7p9Sp67KyXIY+NmC17QIMa7tU/78R6dYg==", "post"=>{"title"=>"Nowy wpis", "author"=>"", "body"=>"", "published"=>"0"}, "commit"=>"Dodaj wpis"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "posts" ("title", "author", "body", "published", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Nowy wpis"], ["author", ""], ["body", ""], ["published", "f"], ["created_at", "2018-01-15 19:24:52.663059"], ["updated_at", "2018-01-15 19:24:52.663059"]]
+  [1m[35m (702.3ms)[0m  commit transaction
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 709ms (ActiveRecord: 702.8ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-15 20:24:53 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 47ms (Views: 46.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2018-01-15 20:25:17 +0100
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GZkC925wkvdFdFG53IyXIawQ/XqzB4qV7pbjrfA36FgHvtyi4NzLD7p9Sp67KyXIY+NmC17QIMa7tU/78R6dYg==", "post"=>{"title"=>"Nowy wpis", "author"=>"Jacek", "body"=>"Ciekawa treść", "published"=>"1"}, "commit"=>"Dodaj wpis"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "author", "body", "published", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Nowy wpis"], ["author", "Jacek"], ["body", "Ciekawa treść"], ["published", "t"], ["created_at", "2018-01-15 19:25:17.833310"], ["updated_at", "2018-01-15 19:25:17.833310"]]
+  [1m[35m (249.3ms)[0m  commit transaction
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 254ms (ActiveRecord: 249.6ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-15 20:25:18 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 57ms (Views: 54.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2018-01-15 20:25:27 +0100
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 53ms (Views: 52.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2018-01-15 20:25:37 +0100
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 61ms (Views: 59.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2018-01-15 20:25:58 +0100
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 60ms (Views: 49.7ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2018-01-15 20:26:26 +0100
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FIqzA/6D4Eqfubi/EPFgnmvYPrzyNQi+5apEh3cUwwoKrW1WcC+5smCwo5h3VtJ3pCulzR/iou2wiejRdj22MA==", "post"=>{"title"=>"Testuje sesje", "author"=>"Jacuś", "body"=>"Sesja czy cookies?", "published"=>"1"}, "commit"=>"Dodaj wpis"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "posts" ("title", "author", "body", "published", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Testuje sesje"], ["author", "Jacuś"], ["body", "Sesja czy cookies?"], ["published", "t"], ["created_at", "2018-01-15 19:26:26.046482"], ["updated_at", "2018-01-15 19:26:26.046482"]]
+  [1m[35m (349.9ms)[0m  commit transaction
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 355ms (ActiveRecord: 350.3ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-15 20:26:26 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 50ms (Views: 49.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2018-01-15 20:26:29 +0100
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 57ms (Views: 56.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-15 22:35:13 +0100
+Processing by PostsController#index as HTML
+  Rendered posts/index.html.erb within layouts/application (1.0ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+SyntaxError (/home/jakub/Pulpit/Rails/crud/app/views/posts/index.html.erb:25: syntax error, unexpected ')', expecting &. or :: or '[' or '.'
+ass "btn btn-default btn-xs" );@output_buffer.safe_append='
+                              ^
+/home/jakub/Pulpit/Rails/crud/app/views/posts/index.html.erb:28: syntax error, unexpected keyword_end, expecting ')'
+'.freeze;     end 
+                 ^
+/home/jakub/Pulpit/Rails/crud/app/views/posts/index.html.erb:32: syntax error, unexpected keyword_ensure, expecting ')'
+          ensure
+                ^
+/home/jakub/Pulpit/Rails/crud/app/views/posts/index.html.erb:34: syntax error, unexpected keyword_end, expecting ')'
+          end
+             ^):
+  app/views/posts/index.html.erb:25: syntax error, unexpected ')', expecting &. or :: or '[' or '.'
+  app/views/posts/index.html.erb:28: syntax error, unexpected keyword_end, expecting ')'
+  app/views/posts/index.html.erb:32: syntax error, unexpected keyword_ensure, expecting ')'
+  app/views/posts/index.html.erb:34: syntax error, unexpected keyword_end, expecting ')'
+
+
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.9ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.9ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (29.9ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (19.2ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (42.2ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-15 22:35:59 +0100
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.5ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (11.6ms)
+Completed 200 OK in 55ms (Views: 53.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2018-01-15 22:36:01 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendered posts/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 77ms (Views: 76.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/7" for 127.0.0.1 at 2018-01-15 22:36:05 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"7"}
+  Rendered posts/show.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 57ms (Views: 56.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2018-01-15 22:44:18 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.5ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered posts/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 143ms (Views: 47.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2018-01-15 22:45:43 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered posts/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 64ms (Views: 62.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-15 22:45:45 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 61ms (Views: 59.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/5" for 127.0.0.1 at 2018-01-15 22:45:46 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 5]]
+  Rendered posts/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 54ms (Views: 52.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-15 22:45:48 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 55ms (Views: 54.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/6" for 127.0.0.1 at 2018-01-15 22:45:53 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 6]]
+  Rendered posts/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 57ms (Views: 55.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-15 22:45:55 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 52ms (Views: 51.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts/2" for 127.0.0.1 at 2018-01-15 22:45:59 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered posts/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 60ms (Views: 59.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-15 22:46:02 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 50ms (Views: 49.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2018-01-15 23:34:54 +0100
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 52ms (Views: 51.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2018-01-15 23:37:21 +0100
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ndfc9TEXn+foozrPoLcxBBPTpFtEh+uN/ppmoDu8Q5KD8AKgv7vGHxeqIejHEIPt3CA/KqlQQd6rucr2OpU2qA==", "post"=>{"title"=>"Hello!", "author"=>"Jacek", "body"=>"To jest <strong>super</strong> wygodne!\r\n\r\nTak trzymać.", "published"=>"1"}, "commit"=>"Dodaj wpis"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "posts" ("title", "author", "body", "published", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Hello!"], ["author", "Jacek"], ["body", "To jest <strong>super</strong> wygodne!\r\n\r\nTak trzymać."], ["published", "t"], ["created_at", "2018-01-15 22:37:21.413554"], ["updated_at", "2018-01-15 22:37:21.413554"]]
+  [1m[35m (194.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 199ms (ActiveRecord: 194.4ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-15 23:37:21 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 48ms (Views: 47.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/8" for 127.0.0.1 at 2018-01-15 23:37:30 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 8]]
+  Rendered posts/show.html.erb within layouts/application (209.2ms)
+Completed 200 OK in 260ms (Views: 258.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-15 23:38:21 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (12.5ms)
+Completed 200 OK in 58ms (Views: 57.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-15 23:45:55 +0100
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.5ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 68ms (Views: 63.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/posts/8" for 127.0.0.1 at 2018-01-15 23:45:59 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 8]]
+  Rendered posts/show.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 79ms (Views: 77.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2018-01-15 23:46:03 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered posts/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 90ms (Views: 88.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2018-01-16 00:00:55 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered posts/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 62ms (Views: 52.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/posts/2" for 127.0.0.1 at 2018-01-16 00:00:59 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered posts/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 63ms (Views: 61.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-16 15:13:21 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (72.1ms)
+Completed 200 OK in 2179ms (Views: 2096.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2018-01-16 15:14:14 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.5ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered posts/show.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 216ms (Views: 118.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-16 15:14:16 +0100
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 67ms (Views: 65.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/7" for 127.0.0.1 at 2018-01-16 15:14:20 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 7]]
+  Rendered posts/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 48ms (Views: 47.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/posts/2" for 127.0.0.1 at 2018-01-16 15:14:25 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered posts/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 53ms (Views: 51.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-16 16:41:52 +0100
+Processing by PostsController#index as HTML
+  Rendered posts/index.html.erb within layouts/application (1.0ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+SyntaxError (/home/jakub/Pulpit/Rails/crud/app/views/posts/index.html.erb:26: syntax error, unexpected tIDENTIFIER, expecting ')'
+ink_to "Edytuj" edit_post_path(post), class: "btn btn-primar
+                              ^
+/home/jakub/Pulpit/Rails/crud/app/views/posts/index.html.erb:26: syntax error, unexpected ',', expecting ')'
+"Edytuj" edit_post_path(post), class: "btn btn-primary btn-x
+                              ^):
+  app/views/posts/index.html.erb:26: syntax error, unexpected tIDENTIFIER, expecting ')'
+  app/views/posts/index.html.erb:26: syntax error, unexpected ',', expecting ')'
+
+
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (11.7ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.8ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (37.8ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (81.7ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (182.3ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-16 16:42:28 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.5ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 54ms (Views: 52.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/posts/8/edit" for 127.0.0.1 at 2018-01-16 16:42:31 +0100
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"8"}
+  [1m[35mPost Load (0.3ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 8]]
+  Rendered posts/edit.html.erb within layouts/application (57.2ms)
+Completed 200 OK in 110ms (Views: 107.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2018-01-16 16:42:39 +0100
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 49ms (Views: 48.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2018-01-16 16:42:42 +0100
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 59ms (Views: 57.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/8/edit" for 127.0.0.1 at 2018-01-16 16:52:43 +0100
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 8]]
+  Rendered posts/edit.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 61ms (Views: 49.2ms | ActiveRecord: 0.7ms)
+
+
+Started PATCH "/posts/8" for 127.0.0.1 at 2018-01-16 16:52:59 +0100
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yOH9NNqsoEwZtDRCmtg/z0ZbzfD4FS6KXNfF/jYWYbnBr6rBAuHNQUl/MoeEn2M+Y9mktLpfXxFrpdZkEBmjcQ==", "post"=>{"title"=>"Hello", "author"=>"Jacek", "body"=>"To jest super wygodne!\r\n\r\nTak trzymać.", "published"=>"1"}, "commit"=>"Zmień wpis", "id"=>"8"}
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 8]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "posts" SET "title" = ?, "body" = ?, "updated_at" = ? WHERE "posts"."id" = ?  [["title", "Hello"], ["body", "To jest super wygodne!\r\n\r\nTak trzymać."], ["updated_at", "2018-01-16 15:52:59.951658"], ["id", 8]]
+  [1m[36m (365.8ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 371ms (ActiveRecord: 366.2ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-16 16:53:00 +0100
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 47ms (Views: 45.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2018-01-16 17:03:19 +0100
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 55ms (Views: 53.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2018-01-16 17:03:23 +0100
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 70ms (Views: 68.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-16 17:03:27 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 50ms (Views: 48.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-16 17:16:24 +0100
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 48ms (Views: 47.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-16 17:16:27 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 51ms (Views: 49.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2018-01-16 17:16:28 +0100
+Processing by PostsController#new as HTML
+  Rendered posts/_form.html.erb (3.6ms)
+  Rendered posts/new.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 58ms (Views: 57.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/1/edit" for 127.0.0.1 at 2018-01-16 17:16:32 +0100
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered posts/_form.html.erb (2.2ms)
+  Rendered posts/edit.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 67ms (Views: 65.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2018-01-16 18:25:52 +0100
+Processing by PostsController#new as HTML
+  Rendered posts/_form.html.erb (1.6ms)
+  Rendered posts/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 75ms (Views: 64.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.self-89d3a9ae9049ee4a18d01652ca3066aaa93f009bae20ae61210ce9ae0b8eae56.css?body=1" for 127.0.0.1 at 2018-01-16 18:25:52 +0100
+
+
+Started POST "/posts" for 127.0.0.1 at 2018-01-16 18:25:53 +0100
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+nL0A38Aua89PcjvRalq98hnRi1yWvYStyfg+uVoLzLzPKP2p03Uom32zipb7jYG7eUvaTAQh4mAVfNgw2ft+g==", "post"=>{"title"=>"", "author"=>"", "body"=>"", "published"=>"0"}, "commit"=>"Dodaj nowy wpis"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  Rendered posts/_form.html.erb (1.6ms)
+  Rendered posts/new.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 48ms (Views: 43.5ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2018-01-16 18:27:27 +0100
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lx2SRGt0Z8ZhVt0dN612RD50ptqwIUMd/Agdpfg5Mn2eU8WxszkKyzGd29gp6iq1G/bPnvJrMobLeg4/3jbwtQ==", "post"=>{"title"=>"", "author"=>"", "body"=>"", "published"=>"0"}, "commit"=>"Dodaj nowy wpis"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  Rendered posts/_form.html.erb (1.6ms)
+  Rendered posts/new.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 65ms (Views: 60.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.self-f6ebf194483afad1da87f46d473f0150425f13264d109bb0d10aa13fcb1e3132.css?body=1" for 127.0.0.1 at 2018-01-16 18:27:27 +0100
+
+
+Started POST "/posts" for 127.0.0.1 at 2018-01-16 18:28:01 +0100
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QQXK1WFho8oEf6z8LkPETF3voLueYn7cl/s3EjywWrlIS50guSzOx1S0qjkwBJi9eG3J/9woD0egiSSIGr+YcQ==", "post"=>{"title"=>"", "author"=>"", "body"=>"", "published"=>"0"}, "commit"=>"Dodaj nowy wpis"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  Rendered posts/_form.html.erb (1.9ms)
+  Rendered posts/new.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 70ms (Views: 65.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.self-13ad28ec656f38d9a72108ba99df05997fd4956ebfcce66fba1a08000d63402c.css?body=1" for 127.0.0.1 at 2018-01-16 18:28:01 +0100
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2018-01-16 18:28:08 +0100
+Processing by PostsController#new as HTML
+  Rendered posts/_form.html.erb (1.9ms)
+  Rendered posts/new.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 64ms (Views: 62.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2018-01-16 18:28:09 +0100
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ieDrluncJYWvbeEziEOjRIyWkHbpslZdYD5hWX2iy1GArrxjMZFIiP+m5/aWBP+1qRT5Mqv4J8ZXTHLDW60JmQ==", "post"=>{"title"=>"", "author"=>"", "body"=>"", "published"=>"0"}, "commit"=>"Dodaj nowy wpis"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  Rendered posts/_form.html.erb (1.9ms)
+  Rendered posts/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 53ms (Views: 51.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2018-01-16 18:28:32 +0100
+Processing by PostsController#new as HTML
+  Rendered posts/_form.html.erb (1.9ms)
+  Rendered posts/new.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 61ms (Views: 59.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2018-01-16 18:32:55 +0100
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AOuZWw/4Q/NSmEhDNjYml1lTonEzpaDOqjTuUBID2lQJpc6u17Uu/gJTToYocXpmfNHLNXHv0VWdRv3KNAwYnA==", "post"=>{"title"=>"", "author"=>"", "body"=>"", "published"=>"0"}, "commit"=>"Dodaj nowy wpis"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  Rendered posts/_form.html.erb (2.7ms)
+  Rendered posts/new.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 50ms (Views: 46.4ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2018-01-16 18:35:20 +0100
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xQUdb6rayRO5TECm5uTB+nFWpb3MAoKljDTrUcttnUnMS0qacpekHumHRmP4o50LVNTM+Y5I8z67RvjL7WJfgQ==", "post"=>{"title"=>"", "author"=>"", "body"=>"", "published"=>"0"}, "commit"=>"Dodaj nowy wpis"}
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  Rendered posts/_form.html.erb (2.7ms)
+  Rendered posts/new.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 55ms (Views: 50.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-16 18:41:37 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 58ms (Views: 53.3ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/posts/8" for 127.0.0.1 at 2018-01-16 18:42:03 +0100
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"sah84Z1o11aRc/SugNhO2G3KNLd5PR5q22MLl1AGT+a45isURSW6W8G48muenxIpSEhd8zt3b/HsERgNdgmNLg==", "id"=>"8"}
+  [1m[35mPost Load (0.3ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 8]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = ?  [["id", 8]]
+  [1m[36m (88.5ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/posts/8
+Completed 302 Found in 94ms (ActiveRecord: 89.1ms)
+
+
+Started GET "/posts/8" for 127.0.0.1 at 2018-01-16 18:42:03 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 8]]
+Completed 404 Not Found in 1ms (ActiveRecord: 0.1ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Post with 'id'=8):
+  app/controllers/posts_controller.rb:36:in `show'
+
+
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.0ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (26.4ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (18.7ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (37.2ms)
+
+
+Started DELETE "/posts/8" for 127.0.0.1 at 2018-01-16 18:42:50 +0100
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"sah84Z1o11aRc/SugNhO2G3KNLd5PR5q22MLl1AGT+a45isURSW6W8G48muenxIpSEhd8zt3b/HsERgNdgmNLg==", "id"=>"8"}
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 8]]
+Completed 404 Not Found in 1ms (ActiveRecord: 0.1ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Post with 'id'=8):
+  app/controllers/posts_controller.rb:40:in `destroy'
+
+
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.8ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (26.0ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (18.4ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (36.4ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-16 18:43:50 +0100
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.4ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 56ms (Views: 51.8ms | ActiveRecord: 0.8ms)
+
+
+Started DELETE "/posts/7" for 127.0.0.1 at 2018-01-16 18:43:54 +0100
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"+l9qJF9y2k6yNW/obOB/qexPNNI/hKrKisrBKp3c84rzET3Rhz+3Q+L+aS1ypyNYyc1dln3O21G9uNKwu9MxQg==", "id"=>"7"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+ActionView::MissingTemplate (Missing template posts/destroy, application/destroy with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/jakub/Pulpit/Rails/crud/app/views"
+  * "/home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/twitter-bootstrap-rails-3.2.2/app/views"
+):
+  actionview (4.2.8) lib/action_view/path_set.rb:46:in `find'
+  actionview (4.2.8) lib/action_view/lookup_context.rb:121:in `find'
+  actionview (4.2.8) lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  actionview (4.2.8) lib/action_view/renderer/template_renderer.rb:40:in `determine_template'
+  actionview (4.2.8) lib/action_view/renderer/template_renderer.rb:8:in `render'
+  actionview (4.2.8) lib/action_view/renderer/renderer.rb:46:in `render_template'
+  actionview (4.2.8) lib/action_view/renderer/renderer.rb:27:in `render'
+  actionview (4.2.8) lib/action_view/rendering.rb:100:in `_render_template'
+  actionpack (4.2.8) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.2.8) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (4.2.8) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.2.8) lib/action_controller/metal/renderers.rb:37:in `render_to_body'
+  actionpack (4.2.8) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.2.8) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.2.8) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+  activesupport (4.2.8) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /usr/share/rvm/rubies/ruby-2.4.0/lib/ruby/2.4.0/benchmark.rb:308:in `realtime'
+  activesupport (4.2.8) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.2.8) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+  actionpack (4.2.8) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+  activerecord (4.2.8) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.2.8) lib/action_controller/metal/instrumentation.rb:43:in `render'
+  actionpack (4.2.8) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.2.8) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.2.8) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.8) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.8) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.8) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.8) lib/active_support/callbacks.rb:555:in `block (2 levels) in compile'
+  activesupport (4.2.8) lib/active_support/callbacks.rb:505:in `call'
+  activesupport (4.2.8) lib/active_support/callbacks.rb:92:in `__run_callbacks__'
+  activesupport (4.2.8) lib/active_support/callbacks.rb:778:in `_run_process_action_callbacks'
+  activesupport (4.2.8) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.8) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.8) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.8) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.8) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.8) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.8) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.8) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.8) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.8) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.8) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.8) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.8) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.8) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.8) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.8) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.8) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.8) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.8) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.8) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.8) lib/action_dispatch/routing/route_set.rb:817:in `call'
+  rack (1.6.8) lib/rack/etag.rb:24:in `call'
+  rack (1.6.8) lib/rack/conditionalget.rb:38:in `call'
+  rack (1.6.8) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.8) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.8) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.8) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.8) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.8) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.8) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.8) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.8) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.8) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.8) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.8) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.8) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.8) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.8) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.8) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.8) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.8) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.8) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.8) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.8) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.8) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.8) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.8) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.8) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.8) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.8) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.8) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.8) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.8) lib/rails/engine.rb:518:in `call'
+  railties (4.2.8) lib/rails/application.rb:165:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  rack (1.6.8) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.8) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/share/rvm/rubies/ruby-2.4.0/lib/ruby/2.4.0/webrick/httpserver.rb:140:in `service'
+  /usr/share/rvm/rubies/ruby-2.4.0/lib/ruby/2.4.0/webrick/httpserver.rb:96:in `run'
+  /usr/share/rvm/rubies/ruby-2.4.0/lib/ruby/2.4.0/webrick/server.rb:290:in `block in start_thread'
+
+
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.6ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.4ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout (34.0ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (18.6ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (37.7ms)
+
+
+Started DELETE "/posts/7" for 127.0.0.1 at 2018-01-16 18:45:52 +0100
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"+l9qJF9y2k6yNW/obOB/qexPNNI/hKrKisrBKp3c84rzET3Rhz+3Q+L+aS1ypyNYyc1dln3O21G9uNKwu9MxQg==", "id"=>"7"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 7]]
+  [1m[35m (88.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 101ms (ActiveRecord: 89.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-16 18:45:53 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 50ms (Views: 49.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-16 18:45:56 +0100
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 49ms (Views: 48.3ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/posts/6" for 127.0.0.1 at 2018-01-16 18:47:26 +0100
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"lXJKogoVCqp2UIQ7CF7lMIaOVS6eDNSpfb+p+v+FGPqcPB1X0lhnpyabgv4WGbnBoww8atxGpTJKzbpg2YraMg==", "id"=>"6"}
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 6]]
+  [1m[35m (125.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 129ms (ActiveRecord: 125.6ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-16 18:47:27 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 50ms (Views: 48.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/8/edit" for 127.0.0.1 at 2018-01-16 18:47:32 +0100
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"8"}
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 8]]
+Completed 404 Not Found in 2ms (ActiveRecord: 0.1ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Post with 'id'=8):
+  app/controllers/posts_controller.rb:18:in `edit'
+
+
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.5ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (26.9ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (20.0ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (37.9ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-16 18:48:26 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 49ms (Views: 47.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-16 22:41:14 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/jumbotron (101.5ms)
+Completed 200 OK in 1026ms (Views: 979.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-16 22:41:39 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/jumbotron (5.6ms)
+Completed 200 OK in 49ms (Views: 48.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-16 22:42:16 +0100
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/jumbotron (3.8ms)
+Completed 200 OK in 61ms (Views: 59.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-16 22:43:27 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.5ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `layout' for #<PostsController:0x007f5076594868>
+Did you mean?  _layout):
+  app/controllers/posts_controller.rb:34:in `index'
+
+
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.6ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (32.7ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (139.8ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (165.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-16 22:43:47 +0100
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.4ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/jumbotron (8.9ms)
+Completed 200 OK in 59ms (Views: 52.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2018-01-16 22:43:50 +0100
+Processing by PostsController#new as HTML
+  Rendered posts/_form.html.erb (298.1ms)
+  Rendered posts/new.html.erb within layouts/application (335.4ms)
+Completed 200 OK in 552ms (Views: 550.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-16 23:08:17 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 64ms (Views: 59.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2018-01-16 23:08:19 +0100
+Processing by PostsController#new as HTML
+  Rendered posts/_form.html.erb (2.0ms)
+  Rendered posts/new.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 58ms (Views: 57.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-16 23:51:24 +0100
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.4ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 64ms (Views: 59.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/posts/published" for 127.0.0.1 at 2018-01-16 23:51:26 +0100
+Processing by PostsController#published as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."published" = ?[0m  [["published", "t"]]
+  Rendered posts/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 97ms (Views: 52.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-16 23:51:29 +0100
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 51ms (Views: 50.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/published" for 127.0.0.1 at 2018-01-16 23:51:30 +0100
+Processing by PostsController#published as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."published" = ?[0m  [["published", "t"]]
+  Rendered posts/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 62ms (Views: 60.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-16 23:51:30 +0100
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 62ms (Views: 60.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/published" for 127.0.0.1 at 2018-01-16 23:51:31 +0100
+Processing by PostsController#published as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."published" = ?[0m  [["published", "t"]]
+  Rendered posts/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 56ms (Views: 55.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-16 23:51:33 +0100
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 58ms (Views: 56.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-16 23:59:17 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (9.7ms)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.7ms)
+
+ActionView::Template::Error (No route matches {:action=>"confirm_destroy", :controller=>"posts"} missing required keys: [:id]):
+    29:         <td>
+    30:           <%= link_to "Pokaż", post_path(post), class: "btn btn-default btn-xs" %>
+    31:           <%= link_to "Edytuj", edit_post_path(post), class: "btn btn-primary btn-xs" %>
+    32:           <%= link_to "Usuń", confirm_destroy_post_path, class: "btn btn-danger btn-xs" %>
+    33:         </td>
+    34:       </tr>
+    35:     <% end %>
+  app/views/posts/index.html.erb:32:in `block in _app_views_posts_index_html_erb__2522482596085327274_69991781451880'
+  app/views/posts/index.html.erb:22:in `_app_views_posts_index_html_erb__2522482596085327274_69991781451880'
+
+
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (15.5ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.9ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (38.8ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (18.9ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (36.8ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-17 00:00:27 +0100
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 49ms (Views: 48.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/1/confirm_destroy" for 127.0.0.1 at 2018-01-17 00:00:29 +0100
+Processing by PostsController#confirm_destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered posts/confirm_destroy.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 67ms (Views: 62.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2018-01-17 00:00:32 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered posts/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 80ms (Views: 79.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-17 00:00:37 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 58ms (Views: 57.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/1/confirm_destroy" for 127.0.0.1 at 2018-01-17 00:00:40 +0100
+Processing by PostsController#confirm_destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered posts/confirm_destroy.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 54ms (Views: 52.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2018-01-17 00:00:41 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered posts/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 56ms (Views: 55.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-17 00:00:42 +0100
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 57ms (Views: 55.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/5/confirm_destroy" for 127.0.0.1 at 2018-01-17 00:02:24 +0100
+Processing by PostsController#confirm_destroy as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 5]]
+  Rendered posts/confirm_destroy.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 52ms (Views: 50.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-17 00:02:25 +0100
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 68ms (Views: 66.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/5/confirm_destroy" for 127.0.0.1 at 2018-01-17 00:02:27 +0100
+Processing by PostsController#confirm_destroy as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 5]]
+  Rendered posts/confirm_destroy.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 49ms (Views: 48.0ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/posts/5" for 127.0.0.1 at 2018-01-17 00:02:28 +0100
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"bFvlW0LYSVnMiV2tn2il2VyCmRO6JVfVkeH0bPwqWrXSl3R80+jTWuBMzrR+Vh0nIMJGsYVBMGAqleYPdrU0xA==", "id"=>"5"}
+  [1m[35mPost Load (0.3ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = ?  [["id", 5]]
+  [1m[36m (120.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 125ms (ActiveRecord: 120.9ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-17 00:02:28 +0100
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.4ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 53ms (Views: 51.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-17 00:02:48 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 59ms (Views: 58.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/published" for 127.0.0.1 at 2018-01-17 00:02:55 +0100
+Processing by PostsController#published as HTML
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."published" = ?  [["published", "t"]]
+  Rendered posts/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 54ms (Views: 52.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-17 00:02:56 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 57ms (Views: 55.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts/published" for 127.0.0.1 at 2018-01-17 00:02:56 +0100
+Processing by PostsController#published as HTML
+  [1m[35mPost Load (0.1ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."published" = ?  [["published", "t"]]
+  Rendered posts/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 67ms (Views: 66.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-17 00:02:56 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 55ms (Views: 54.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/published" for 127.0.0.1 at 2018-01-17 00:02:57 +0100
+Processing by PostsController#published as HTML
+  [1m[35mPost Load (0.1ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."published" = ?  [["published", "t"]]
+  Rendered posts/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 57ms (Views: 56.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-17 00:02:58 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 65ms (Views: 64.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/published" for 127.0.0.1 at 2018-01-17 00:03:01 +0100
+Processing by PostsController#published as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."published" = ?  [["published", "t"]]
+  Rendered posts/index.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 59ms (Views: 58.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-17 00:03:01 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 61ms (Views: 59.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/published" for 127.0.0.1 at 2018-01-17 00:03:02 +0100
+Processing by PostsController#published as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."published" = ?  [["published", "t"]]
+  Rendered posts/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 61ms (Views: 60.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-17 00:03:03 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 61ms (Views: 59.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/published" for 127.0.0.1 at 2018-01-17 00:03:03 +0100
+Processing by PostsController#published as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."published" = ?  [["published", "t"]]
+  Rendered posts/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 61ms (Views: 59.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-17 00:03:03 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 66ms (Views: 64.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts/published" for 127.0.0.1 at 2018-01-17 00:03:04 +0100
+Processing by PostsController#published as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."published" = ?  [["published", "t"]]
+  Rendered posts/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 57ms (Views: 55.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-17 00:03:04 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 59ms (Views: 58.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/blalbalba" for 127.0.0.1 at 2018-01-17 00:31:26 +0100
+
+ActionController::RoutingError (No route matches [GET] "/blalbalba"):
+  actionpack (4.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.8) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.8) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.8) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.8) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.8) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.8) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.8) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.8) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.8) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.8) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.8) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.8) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.8) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.8) lib/rails/engine.rb:518:in `call'
+  railties (4.2.8) lib/rails/application.rb:165:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  rack (1.6.8) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.8) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/share/rvm/rubies/ruby-2.4.0/lib/ruby/2.4.0/webrick/httpserver.rb:140:in `service'
+  /usr/share/rvm/rubies/ruby-2.4.0/lib/ruby/2.4.0/webrick/httpserver.rb:96:in `run'
+  /usr/share/rvm/rubies/ruby-2.4.0/lib/ruby/2.4.0/webrick/server.rb:290:in `block in start_thread'
+
+
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.0ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/routes/_table.html.erb (14.2ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (60.0ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (20.7ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (39.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-17 00:31:36 +0100
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 54ms (Views: 53.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/blalbabva" for 127.0.0.1 at 2018-01-17 00:31:42 +0100
+
+ActionController::RoutingError (No route matches [GET] "/blalbabva"):
+  actionpack (4.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.8) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.8) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.8) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.8) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.8) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.8) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.8) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.8) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.8) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.8) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.8) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.8) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.8) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.8) lib/rails/engine.rb:518:in `call'
+  railties (4.2.8) lib/rails/application.rb:165:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  rack (1.6.8) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.8) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/share/rvm/rubies/ruby-2.4.0/lib/ruby/2.4.0/webrick/httpserver.rb:140:in `service'
+  /usr/share/rvm/rubies/ruby-2.4.0/lib/ruby/2.4.0/webrick/httpserver.rb:96:in `run'
+  /usr/share/rvm/rubies/ruby-2.4.0/lib/ruby/2.4.0/webrick/server.rb:290:in `block in start_thread'
+
+
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.2ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.3ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (27.9ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (18.5ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (36.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-17 00:34:08 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 51ms (Views: 50.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/published" for 127.0.0.1 at 2018-01-17 00:48:30 +0100
+Processing by PostsController#published as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."published" = ?  [["published", "t"]]
+  Rendered posts/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 63ms (Views: 61.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-17 00:48:30 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 59ms (Views: 58.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts/published" for 127.0.0.1 at 2018-01-17 00:48:31 +0100
+Processing by PostsController#published as HTML
+  [1m[35mPost Load (0.1ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."published" = ?  [["published", "t"]]
+  Rendered posts/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 59ms (Views: 58.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-17 00:48:32 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 64ms (Views: 63.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/published" for 127.0.0.1 at 2018-01-17 00:48:32 +0100
+Processing by PostsController#published as HTML
+  [1m[35mPost Load (0.1ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."published" = ?  [["published", "t"]]
+  Rendered posts/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 55ms (Views: 54.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-17 00:48:34 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 60ms (Views: 59.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/published" for 127.0.0.1 at 2018-01-17 00:48:35 +0100
+Processing by PostsController#published as HTML
+  [1m[35mPost Load (0.1ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."published" = ?  [["published", "t"]]
+  Rendered posts/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 61ms (Views: 60.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-17 00:48:35 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 60ms (Views: 58.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/published" for 127.0.0.1 at 2018-01-17 00:48:37 +0100
+Processing by PostsController#published as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."published" = ?  [["published", "t"]]
+  Rendered posts/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 73ms (Views: 71.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-17 00:48:38 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 53ms (Views: 51.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/published" for 127.0.0.1 at 2018-01-17 00:48:39 +0100
+Processing by PostsController#published as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."published" = ?  [["published", "t"]]
+  Rendered posts/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 62ms (Views: 60.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-17 00:48:41 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 61ms (Views: 59.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2018-01-17 00:48:41 +0100
+Processing by PostsController#new as HTML
+  Rendered posts/_form.html.erb (2.9ms)
+  Rendered posts/new.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 53ms (Views: 51.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/published" for 127.0.0.1 at 2018-01-17 00:48:50 +0100
+Processing by PostsController#published as HTML
+  [1m[35mPost Load (0.1ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."published" = ?  [["published", "t"]]
+  Rendered posts/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 61ms (Views: 60.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-17 00:48:51 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 64ms (Views: 63.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2018-01-17 00:48:51 +0100
+Processing by PostsController#new as HTML
+  Rendered posts/_form.html.erb (2.1ms)
+  Rendered posts/new.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 52ms (Views: 51.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2018-01-17 00:48:56 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered posts/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 51ms (Views: 50.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-17 00:48:59 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 61ms (Views: 60.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/1/edit" for 127.0.0.1 at 2018-01-17 00:49:01 +0100
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.3ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered posts/_form.html.erb (1.2ms)
+  Rendered posts/edit.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 50ms (Views: 48.0ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/posts/1" for 127.0.0.1 at 2018-01-17 00:49:05 +0100
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mUuGP+y+YemzfgF/94Ojomt9+cvUO+nXi9YUMMk2crcnhxcYfY776p+7kmYWvRtcFz0maetfjmIwogZTQ6kcxg==", "post"=>{"title"=>"Hey!", "author"=>"Jacek", "body"=>"Hello Ruby", "published"=>"1"}, "commit"=>"Zaktualizuj wpis", "id"=>"1"}
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 4ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-17 00:49:05 +0100
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 50ms (Views: 49.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/1/confirm_destroy" for 127.0.0.1 at 2018-01-17 00:49:08 +0100
+Processing by PostsController#confirm_destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered posts/confirm_destroy.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 56ms (Views: 54.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-17 00:49:10 +0100
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 54ms (Views: 53.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/1/confirm_destroy" for 127.0.0.1 at 2018-01-17 00:49:12 +0100
+Processing by PostsController#confirm_destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered posts/confirm_destroy.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 54ms (Views: 52.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-17 00:49:13 +0100
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 53ms (Views: 52.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/1/confirm_destroy" for 127.0.0.1 at 2018-01-17 00:49:14 +0100
+Processing by PostsController#confirm_destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered posts/confirm_destroy.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 52ms (Views: 51.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-17 00:49:15 +0100
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 67ms (Views: 66.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/1/edit" for 127.0.0.1 at 2018-01-17 00:49:18 +0100
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered posts/_form.html.erb (2.0ms)
+  Rendered posts/edit.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 55ms (Views: 53.7ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/posts/1" for 127.0.0.1 at 2018-01-17 00:49:19 +0100
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"06QuLf+KsBQWYD18s1MK14r0/+xRb9cijYSRg3PZeHZtaL8KbroqFzqlrmVSbbIp9rQgTm4LsJc28IPg+UYWBw==", "post"=>{"title"=>"Hey!", "author"=>"Jacek", "body"=>"Hello Ruby", "published"=>"1"}, "commit"=>"Zaktualizuj wpis", "id"=>"1"}
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-17 00:49:19 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 48ms (Views: 47.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/1/confirm_destroy" for 127.0.0.1 at 2018-01-17 00:49:21 +0100
+Processing by PostsController#confirm_destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered posts/confirm_destroy.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 56ms (Views: 54.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-17 00:49:23 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 56ms (Views: 55.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/4/confirm_destroy" for 127.0.0.1 at 2018-01-17 00:49:27 +0100
+Processing by PostsController#confirm_destroy as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 4]]
+  Rendered posts/confirm_destroy.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 51ms (Views: 49.4ms | ActiveRecord: 0.1ms)
+
+
+Started DELETE "/posts/4" for 127.0.0.1 at 2018-01-17 00:49:29 +0100
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ryvstRD+n9Gj2AoIA683GzdURLoFDusJin9kA0Y3rNAR532Sgc4F0o8dmRHikY/lSxSbGDpqjLwxC3ZgzKjCoQ==", "id"=>"4"}
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 4]]
+  [1m[35m (93.2ms)[0m  commit transaction
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 97ms (ActiveRecord: 93.6ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-17 00:49:29 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 54ms (Views: 52.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2018-01-17 00:49:33 +0100
+Processing by PostsController#new as HTML
+  Rendered posts/_form.html.erb (1.5ms)
+  Rendered posts/new.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 48ms (Views: 46.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2018-01-17 00:49:44 +0100
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EHfiracZip5cVptEWhN4csl+USqYnl/bncjhIW6LQPeuu3OKNikQnXCTCF27LcCMtT6OiKf6OG4mvPNC5BQuhg==", "post"=>{"title"=>"", "author"=>"", "body"=>"", "published"=>"0"}, "commit"=>"Dodaj nowy wpis"}
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  Rendered posts/_form.html.erb (2.7ms)
+  Rendered posts/new.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 62ms (Views: 56.8ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2018-01-17 00:51:03 +0100
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"a4J+ZWTAYNt2wa9h+7n3n6POKjxuK17D2z5fqzTytSDVTu9C9fD62FoEPHgah09h3471nlFPOXZgSk3Ivm3bUQ==", "post"=>{"title"=>"Kończę cruda!", "author"=>"Kuba", "body"=>"Zaczyna mi się coraz bardziej podobać!\r\nProgramowanie jest <strong>super!</strong>", "published"=>"1"}, "commit"=>"Dodaj nowy wpis"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "posts" ("title", "author", "body", "published", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Kończę cruda!"], ["author", "Kuba"], ["body", "Zaczyna mi się coraz bardziej podobać!\r\nProgramowanie jest <strong>super!</strong>"], ["published", "t"], ["created_at", "2018-01-16 23:51:03.977372"], ["updated_at", "2018-01-16 23:51:03.977372"]]
+  [1m[35m (223.6ms)[0m  commit transaction
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 228ms (ActiveRecord: 224.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-17 00:51:04 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (23.7ms)
+Completed 200 OK in 76ms (Views: 74.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-17 00:51:15 +0100
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 49ms (Views: 47.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/published" for 127.0.0.1 at 2018-01-17 00:51:22 +0100
+Processing by PostsController#published as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."published" = ?[0m  [["published", "t"]]
+  Rendered posts/index.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 58ms (Views: 57.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-17 00:51:23 +0100
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 58ms (Views: 57.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/published" for 127.0.0.1 at 2018-01-17 00:51:24 +0100
+Processing by PostsController#published as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."published" = ?[0m  [["published", "t"]]
+  Rendered posts/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 63ms (Views: 62.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-17 00:51:24 +0100
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 57ms (Views: 55.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/published" for 127.0.0.1 at 2018-01-17 00:51:25 +0100
+Processing by PostsController#published as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."published" = ?[0m  [["published", "t"]]
+  Rendered posts/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 57ms (Views: 56.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-17 00:51:25 +0100
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 70ms (Views: 69.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/published" for 127.0.0.1 at 2018-01-17 01:15:20 +0100
+Processing by PostsController#published as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."published" = ?[0m  [["published", "t"]]
+  Rendered posts/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 64ms (Views: 62.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-17 01:15:21 +0100
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 62ms (Views: 60.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/published" for 127.0.0.1 at 2018-01-17 01:15:21 +0100
+Processing by PostsController#published as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."published" = ?[0m  [["published", "t"]]
+  Rendered posts/index.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 62ms (Views: 61.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-17 01:15:21 +0100
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.4ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 59ms (Views: 57.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-17 17:40:32 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.4ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (80.5ms)
+Completed 200 OK in 1461ms (Views: 1409.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/posts/published" for 127.0.0.1 at 2018-01-17 17:40:46 +0100
+Processing by PostsController#published as HTML
+  [1m[36mPost Load (0.5ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."published" = ?[0m  [["published", "t"]]
+  Rendered posts/index.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 182ms (Views: 52.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-17 17:40:47 +0100
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.4ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 71ms (Views: 69.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts/published" for 127.0.0.1 at 2018-01-17 17:40:48 +0100
+Processing by PostsController#published as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."published" = ?[0m  [["published", "t"]]
+  Rendered posts/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 58ms (Views: 56.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-17 17:40:48 +0100
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 61ms (Views: 60.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2018-01-17 17:40:49 +0100
+Processing by PostsController#new as HTML
+  Rendered posts/_form.html.erb (155.7ms)
+  Rendered posts/new.html.erb within layouts/application (185.2ms)
+Completed 200 OK in 251ms (Views: 250.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2018-01-17 17:40:51 +0100
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6IAUCnCpZW9AbNhHVtDR69Xm1/RxvtmHkKVHT7wzZCnogQ0Tw5m+239dxEQn+28FMvToGgieISJz8gg4Aej1fA==", "post"=>{"title"=>"", "author"=>"", "body"=>"", "published"=>"0"}, "commit"=>"Dodaj nowy wpis"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  Rendered posts/_form.html.erb (2.0ms)
+  Rendered posts/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 215ms (Views: 48.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/2/edit" for 127.0.0.1 at 2018-01-17 17:40:58 +0100
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.5ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered posts/_form.html.erb (1.6ms)
+  Rendered posts/edit.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 244ms (Views: 161.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2018-01-17 17:41:01 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered posts/show.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 102ms (Views: 101.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-17 17:41:05 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 57ms (Views: 55.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/1/confirm_destroy" for 127.0.0.1 at 2018-01-17 17:41:07 +0100
+Processing by PostsController#confirm_destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered posts/confirm_destroy.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 79ms (Views: 77.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-17 17:41:09 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 64ms (Views: 62.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2018-01-17 17:41:14 +0100
+Processing by PostsController#new as HTML
+  Rendered posts/_form.html.erb (1.5ms)
+  Rendered posts/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 53ms (Views: 51.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2018-01-17 17:41:33 +0100
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1ES0BIBffhSuGFbo7kzwo2TK7PuL4gM6IkcIMvHoVbPURa0dM2+loJEpSuufZ05Ng9jTFfLC+5/BEEdFTDPE5g==", "post"=>{"title"=>"Treść", "author"=>"Kuba", "body"=>"Dupa!", "published"=>"0"}, "commit"=>"Dodaj nowy wpis"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "posts" ("title", "author", "body", "published", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Treść"], ["author", "Kuba"], ["body", "Dupa!"], ["published", "f"], ["created_at", "2018-01-17 16:41:33.069457"], ["updated_at", "2018-01-17 16:41:33.069457"]]
+  [1m[35m (244.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 251ms (ActiveRecord: 244.7ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-17 17:41:33 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 54ms (Views: 52.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/10/confirm_destroy" for 127.0.0.1 at 2018-01-17 17:41:36 +0100
+Processing by PostsController#confirm_destroy as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 10]]
+  Rendered posts/confirm_destroy.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 69ms (Views: 67.5ms | ActiveRecord: 0.1ms)
+
+
+Started DELETE "/posts/10" for 127.0.0.1 at 2018-01-17 17:41:37 +0100
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"x+8gqjWNPj02gRPB4b9LeF2AuzrCZWLdZPsl8tkDxnLH7jmzhr3liQmwD8KQlPWWupKE1LtFmniHrGqFZNhXJw==", "id"=>"10"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 10]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 10]]
+  [1m[35m (125.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 128ms (ActiveRecord: 125.4ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-17 17:41:37 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 62ms (Views: 60.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-17 17:41:42 +0100
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 53ms (Views: 52.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-19 23:11:03 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.4ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (68.7ms)
+Completed 200 OK in 937ms (Views: 899.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/?skip_layout=true" for 127.0.0.1 at 2018-01-19 23:12:34 +0100
+Processing by PostsController#index as HTML
+  Parameters: {"skip_layout"=>"true"}
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb (7.2ms)
+Completed 200 OK in 9ms (Views: 8.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2018-01-19 23:12:41 +0100
+Processing by PostsController#new as HTML
+  Rendered posts/_form.html.erb (109.8ms)
+  Rendered posts/new.html.erb within layouts/application (140.4ms)
+Completed 200 OK in 201ms (Views: 199.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2018-01-19 23:12:45 +0100
+Processing by PostsController#new as HTML
+  Rendered posts/_form.html.erb (1.7ms)
+  Rendered posts/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 56ms (Views: 55.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new/?skip_layout=true" for 127.0.0.1 at 2018-01-19 23:12:55 +0100
+Processing by PostsController#new as HTML
+  Parameters: {"skip_layout"=>"true"}
+  Rendered posts/_form.html.erb (1.5ms)
+  Rendered posts/new.html.erb (2.2ms)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-19 23:20:23 +0100
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 49ms (Views: 48.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-19 23:24:48 +0100
+
+SyntaxError (/home/jakub/Pulpit/Rails/crud/app/controllers/posts_controller.rb:73: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/controllers/posts_controller.rb:73: syntax error, unexpected end-of-input, expecting keyword_end
+
+
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.4ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.4ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (32.0ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (141.1ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/jakub/.rvm/gems/ruby-2.4.0@crud/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (171.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-19 23:26:41 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 56ms (Views: 50.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/posts/1/confirm_destroy" for 127.0.0.1 at 2018-01-19 23:26:43 +0100
+Processing by PostsController#confirm_destroy as HTML
+  Parameters: {"id"=>"1"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/1/confirm_destroy" for 127.0.0.1 at 2018-01-19 23:27:00 +0100
+Processing by PostsController#confirm_destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.4ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered posts/confirm_destroy.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 126ms (Views: 73.3ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/posts/1" for 127.0.0.1 at 2018-01-19 23:27:06 +0100
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"4559CfqWG74FXKwXd5CiP6dMr7VK7ICv6BpqDMBKfWKRuZXIerd1uDKUCXuc4MpMd4pNvd2m6VopVKdec2yWYw==", "id"=>"1"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started DELETE "/posts/1" for 127.0.0.1 at 2018-01-19 23:27:06 +0100
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"4559CfqWG74FXKwXd5CiP6dMr7VK7ICv6BpqDMBKfWKRuZXIerd1uDKUCXuc4MpMd4pNvd2m6VopVKdec2yWYw==", "id"=>"1"}
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (17.8ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 1]]
+  [1m[35m (252.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 273ms (ActiveRecord: 270.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-19 23:27:06 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 47ms (Views: 46.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/9/confirm_destroy" for 127.0.0.1 at 2018-01-19 23:27:18 +0100
+Processing by PostsController#confirm_destroy as HTML
+  Parameters: {"id"=>"9"}
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 9]]
+  Rendered posts/confirm_destroy.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 52ms (Views: 50.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-01-19 23:27:20 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 60ms (Views: 59.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-02-10 20:17:24 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.5ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (80.1ms)
+Completed 200 OK in 1570ms (Views: 1513.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2018-02-10 20:17:33 +0100
+Processing by PostsController#new as HTML
+  Rendered posts/_form.html.erb (55.8ms)
+  Rendered posts/new.html.erb within layouts/application (91.6ms)
+Completed 200 OK in 199ms (Views: 197.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2018-02-10 20:17:53 +0100
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uR/foDaKrBeKVKiBu5llwcaqwR/aJkQj4EJdzU2D2jgu9bylP5g2Me/Yz0plgE3gIluua0cusSDaFQbDaeXj1A==", "post"=>{"title"=>"Nowy tytuł", "author"=>"Autor1", "body"=>"Lachtal", "published"=>"1"}, "commit"=>"Dodaj nowy wpis"}
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (19.7ms)[0m  INSERT INTO "posts" ("title", "author", "body", "published", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Nowy tytuł"], ["author", "Autor1"], ["body", "Lachtal"], ["published", "t"], ["created_at", "2018-02-10 19:17:53.294724"], ["updated_at", "2018-02-10 19:17:53.294724"]]
+  [1m[36m (96.3ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 123ms (ActiveRecord: 116.1ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-02-10 20:17:53 +0100
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 60ms (Views: 59.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/published" for 127.0.0.1 at 2018-02-10 20:18:01 +0100
+Processing by PostsController#published as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."published" = ?[0m  [["published", "t"]]
+  Rendered posts/index.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 115ms (Views: 50.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-02-10 20:18:03 +0100
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 58ms (Views: 56.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/published" for 127.0.0.1 at 2018-02-10 20:18:03 +0100
+Processing by PostsController#published as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."published" = ?[0m  [["published", "t"]]
+  Rendered posts/index.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 68ms (Views: 66.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-02-10 20:18:04 +0100
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 58ms (Views: 57.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/11/edit" for 127.0.0.1 at 2018-02-10 20:18:08 +0100
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 11]]
+  Rendered posts/_form.html.erb (2.1ms)
+  Rendered posts/edit.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 81ms (Views: 77.5ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/posts/11" for 127.0.0.1 at 2018-02-10 20:18:10 +0100
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tGo8vhD/uorgkYs7b7syHdBqeFEOVstVgWtJ5o3ybQojgF+7Ge0grIUd7PCxoho8NJsXJZNePla7PBLoqZRU5g==", "post"=>{"title"=>"Nowy tytuł", "author"=>"Autor1", "body"=>"Lachtal", "published"=>"1"}, "commit"=>"Zaktualizuj wpis", "id"=>"11"}
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 11]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-02-10 20:18:10 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 61ms (Views: 60.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/11/confirm_destroy" for 127.0.0.1 at 2018-02-10 20:18:13 +0100
+Processing by PostsController#confirm_destroy as HTML
+  Parameters: {"id"=>"11"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/11/confirm_destroy" for 127.0.0.1 at 2018-02-10 20:18:22 +0100
+Processing by PostsController#confirm_destroy as HTML
+  Parameters: {"id"=>"11"}
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 11]]
+  Rendered posts/confirm_destroy.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 78ms (Views: 76.5ms | ActiveRecord: 0.1ms)
+
+
+Started DELETE "/posts/11" for 127.0.0.1 at 2018-02-10 20:18:26 +0100
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"1Ojya/Mpv30X6YhwLw+mbofztXqyh2q0mjHu1V16sRlDApFu+jslW3Jl77vxFo5PYwLaDi+Pn7egZrXbeRyI9Q==", "id"=>"11"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started DELETE "/posts/11" for 127.0.0.1 at 2018-02-10 20:18:26 +0100
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"1Ojya/Mpv30X6YhwLw+mbofztXqyh2q0mjHu1V16sRlDApFu+jslW3Jl77vxFo5PYwLaDi+Pn7egZrXbeRyI9Q==", "id"=>"11"}
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 11]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 11]]
+  [1m[35m (90.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 94ms (ActiveRecord: 90.4ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-02-10 20:18:26 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 60ms (Views: 58.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-25 22:52:16 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (54.9ms)
+Completed 200 OK in 1250ms (Views: 1169.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/application.self-13ad28ec656f38d9a72108ba99df05997fd4956ebfcce66fba1a08000d63402c.css?body=1" for 127.0.0.1 at 2018-03-25 22:52:18 +0200
+
+
+Started GET "/assets/posts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2018-03-25 22:52:18 +0200
+
+
+Started GET "/assets/posts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2018-03-25 22:52:18 +0200
+
+
+Started GET "/posts/9/confirm_destroy" for 127.0.0.1 at 2018-03-25 22:52:26 +0200
+Processing by PostsController#confirm_destroy as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mPost Load (0.6ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 9]]
+  Rendered posts/confirm_destroy.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 222ms (Views: 50.5ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/posts/9" for 127.0.0.1 at 2018-03-25 22:52:28 +0200
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Ro+3K/oddzUjswNOizEjTwxf0XzcV7ifk1AFp6Gd4hI67O2hHOVO2e28tFCeJBLu+DLdxJLdS9KxJd8UYWrOnw==", "id"=>"9"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (21.6ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = ?  [["id", 9]]
+  [1m[36m (140.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 169ms (ActiveRecord: 162.7ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-03-25 22:52:28 +0200
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 62ms (Views: 60.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/3/confirm_destroy" for 127.0.0.1 at 2018-03-25 22:52:39 +0200
+Processing by PostsController#confirm_destroy as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered posts/confirm_destroy.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 52ms (Views: 50.8ms | ActiveRecord: 0.1ms)
+
+
+Started DELETE "/posts/3" for 127.0.0.1 at 2018-03-25 22:52:40 +0200
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Yz3E2nDkzLEN/+A1qrnHbvaMSvPf1rxmijSVlmm4vYcfXp5Qlhz1XcPwVyu/rPbPAuFGS5FcTyuoQU8lqU+RCg==", "id"=>"3"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = ?  [["id", 3]]
+  [1m[36m (90.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 94ms (ActiveRecord: 90.5ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-03-25 22:52:41 +0200
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 49ms (Views: 47.8ms | ActiveRecord: 0.3ms)
+  [1m[36m (117.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.3ms)[0m  select sqlite_version(*)
+  [1m[36m (109.7ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreatePosts (20180113235850)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "published" boolean, "author" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180113235850"]]
+  [1m[35m (126.7ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-03-25 22:53:22 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 269ms (Views: 254.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/published" for 127.0.0.1 at 2018-03-25 22:53:27 +0200
+Processing by PostsController#published as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."published" = ?[0m  [["published", "t"]]
+  Rendered posts/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 68ms (Views: 63.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-03-25 22:53:28 +0200
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 53ms (Views: 52.1ms | ActiveRecord: 0.2ms)
